@@ -6,7 +6,7 @@ Please review the ```technologies_used.txt``` file before getting started to kno
 
 1. Clone the project from the repository using given command below<br><br>
     ```
-    git clone https://github.com/harivamshi81189/adv_final_project.git
+    git clone https://github.com/V-H-J/foodie---final-project.git
     ```
 2. Create a Python Virtual Environment for installing all necessary packages for this project. Create the virtual environment using command below<br><br>
     ```
