@@ -1,0 +1,96 @@
+{% extends "base.html" %} {% block head_content %} {% endblock %} {% block main_content %}
+<br>
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="ready-tab" data-bs-toggle="tab" data-bs-target="#ready" type="button"
+                role="tab" aria-controls="ready" aria-selected="true" style="color: black !important">Orders Near By</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#accepted" type="button"
+                role="tab" aria-controls="ready" aria-selected="true" style="color: black !important">Accepted Orders</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                role="tab" aria-controls="home" aria-selected="true" style="color: black !important">Out for
+                Delivery</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="home-tab1" data-bs-toggle="tab" data-bs-target="#home1" type="button"
+                role="tab" aria-controls="home1" aria-selected="false"
+                style="color: black !important">Delivered</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active ps-5 mt-5" id="ready" role="tabpanel" aria-labelledby="ready-tab">
+            {% for key,obj in ready_orders_dict.items %}
+            <div class="row col-sm-8 shadow p-3 mb-5 bg-white rounded">
+                <div class="col-sm-9">
+                    <p class="mb-0"><b>Order from {{obj.order.restaurant_id.legal_name}}</b></p>
+                    <p>By {{obj.order.user_id.first_name}} {{obj.order.user_id.last_name}}</p>
+                    <p><b>Order Items:</b> {% for item in obj.order_items %}
+                        {% if forloop.last%}{{item.item_id.item_name}} ({{item.quantity}}){%else%}{{item.item_id.item_name}}
+                        ({{item.quantity}}),{% endif %}{% endfor %}</p>
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <a class="btn btn-primary" href="/order-delivery-accept/{{key}}">Accept Order</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade ps-5 mt-5" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+            {% for key,obj in accepted_orders_dict.items %}
+            <div class="row col-sm-8 shadow p-3 mb-5 bg-white rounded">
+                <div class="col-sm-9">
+                    <p class="mb-0"><b>Order from {{obj.order.restaurant_id.legal_name}}</b></p>
+                    <p>By {{obj.order.user_id.first_name}} {{obj.order.user_id.last_name}}</p>
+                    <p><b>Order Items:</b> {% for item in obj.order_items %}
+                        {% if forloop.last%}{{item.item_id.item_name}} ({{item.quantity}}){%else%}{{item.item_id.item_name}}
+                        ({{item.quantity}}),{% endif %}{% endfor %}</p>
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <a class="btn btn-primary" href="/order-out-delivery/{{key}}">Out for Delivery</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade ps-5 mt-5" id="home" role="tabpanel" aria-labelledby="home-tab">
+            {% for key,obj in out_orders_dict.items %}
+            <div class="row col-sm-8 shadow p-3 mb-5 bg-white rounded">
+                <div class="col-sm-9">
+                    <p class="mb-0"><b>Order from {{obj.order.restaurant_id.legal_name}}</b></p>
+                    <p>By {{obj.order.user_id.first_name}} {{obj.order.user_id.last_name}}</p>
+                    <p><b>Order Items:</b> {% for item in obj.order_items %}
+                        {% if forloop.last%}{{item.item_id.item_name}} ({{item.quantity}}){%else%}{{item.item_id.item_name}}
+                        ({{item.quantity}}),{% endif %}{% endfor %}</p>
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <a class="btn btn-primary" href="/order-delivered/{{key}}">Delivered</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade ps-5 mt-5" id="home1" role="tabpanel" aria-labelledby="home-tab1">
+            {% for key,obj in delivered_orders_dict.items %}
+            <div class="row col-sm-8 shadow p-3 mb-5 bg-white rounded">
+                <div class="col-sm-9">
+                    <p class="mb-0"><b>Order from {{obj.order.restaurant_id.legal_name}}</b></p>
+                    <p>By {{obj.order.user_id.first_name}} {{obj.order.user_id.last_name}}</p>
+                    <p><b>Order Items:</b> {% for item in obj.order_items %}
+                        {% if forloop.last%}{{item.item_id.item_name}} ({{item.quantity}}){%else%}{{item.item_id.item_name}}
+                        ({{item.quantity}}),{% endif %}{% endfor %}</p>
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <span>Status: Delivered</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

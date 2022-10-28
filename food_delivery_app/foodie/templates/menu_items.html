@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h4>Menu Items</h4>
+    <br>
+    <div class="row d-flex justify-content-end">
+        <div class="col-sm-2">
+            <a class="btn btn-primary" href="/add-menu-item">+ Add Menu Item</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <th>Item Name</th>
+            <th>Item Price</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for item in menu_items %}
+            <tr>
+                <td>{{item.item_name}}</td>
+                <td>{{item.item_price}}</td>
+                <td><a class="btn btn-primary" href="/edit-menu-item/{{item.id}}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

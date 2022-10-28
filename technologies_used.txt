@@ -1,0 +1,6 @@
+Django (Version = 4.0)
+Postgres SQL (Version = 14.4)
+BootStrap (Version = 5.2)
+HTML (Version = 5)
+CSS
+Python (version = 3.10.5)

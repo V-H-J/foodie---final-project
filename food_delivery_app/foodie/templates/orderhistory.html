@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h4>Order History</h4>
+    <br>
+    {% for order in all_orders %}
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-sm-10">
+                <p><b>{{order.order.restaurant_id.legal_name}} Order</b></p>
+                <p>Items Ordered:
+                    {% for item in order.order_items %}
+                    {% if forloop.last %}
+                    {{item.item_id.item_name}}
+                    {% else %}
+                    {{item.item_id.item_name}},
+                    {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm-2 text-center">
+                <p style="font-size:20px;"><b>$ {{order.order.total_price}}</b></p>
+                <a class="btn btn-primary rounded-pill" href="/order-details/{{order.order.id}}">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

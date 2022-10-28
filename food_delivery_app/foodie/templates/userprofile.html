@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block head_content %} {% endblock %} {% block main_content %}
+<form action="/user-profile" method="POST">
+    {% csrf_token %}
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-4 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <h4><span class="font-weight-bold">{{request.user.first_name}} {{request.user.last_name}}</span></h4>
+                    <h6> <span class="text-black-55">{{request.user.email}}</span></h6>
+                    {% if userprofiledata %}
+                    <table class="table">
+                        <br>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date of Birth</th>
+                                <td>{{userprofiledata.dob}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Favorite Food</th>
+                                <td>{{userprofiledata.favorite_food}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Gender</th>
+                                <td>{{userprofiledata.gender|capfirst}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Favorite Restaurant</th>
+                                <td>{{userprofiledata.favorite_restaurant}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="col-md-6 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Date of birth</label><input type="text"
+                                class="form-control" name="dob" placeholder="Date Of Birth"
+                                value="{{userprofiledata.dob}}"></div>
+                        <div class="col-md-6"><label class="labels">Favorite Food</label><input type="text"
+                                class="form-control" value="{{userprofiledata.favorite_food}}" name="favorite_food"
+                                placeholder="Favorite Food">
+                        </div>
+                        <!-- <input type="Submit" value="submit"> -->
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Gender</label>
+                            <select class="form-select" id="user_type" name="gender" aria-label="User Type">
+                                <option value="select gender" selected disabled>Select Gender</option>
+                                <option value="male" {% if userprofiledata.gender == "male" %} selected {% endif %}>Male</option>
+
+                                <option value="female" {% if userprofiledata.gender == "female" %} selected {% endif %}>Female</option>
+                                <option value="other" {% if userprofiledata.gender == "other" %} selected {% endif %}>Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Favorite Restaurant</label><input type="text"
+                                class="form-control" name="favorite_restaurant" placeholder="Favorite Restaurant"
+                                value="{{userprofiledata.favorite_restaurant}}"></div>
+
+                    </div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button rounded-pill" type="Submit"
+                            value="submit">Save Profile</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

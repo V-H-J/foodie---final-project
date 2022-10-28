@@ -1,0 +1,13 @@
+food_tray.png - <a href="https://www.flaticon.com/free-icons/dinner" title="dinner icons">Dinner icons created by DinosoftLabs - Flaticon</a>
+dish.png - <a href="https://www.flaticon.com/free-icons/food" title="food icons">Food icons created by Pause08 - Flaticon</a>
+
+
+slides:
+slide4.jpg - Photo by Norma Mortenson: https://www.pexels.com/photo/man-wearing-a-face-mask-paying-for-pizza-delivery-4393529/
+slide3.jpg - Photo by Erik Mclean: https://www.pexels.com/photo/carton-delivery-box-on-windowsill-4061560/
+slide5.jpg - Photo by Nataliya Vaitkevich: https://www.pexels.com/photo/fruits-and-vegetables-near-the-laptop-8939307/
+slide2.jpg - Photo by Edward Eyer: https://www.pexels.com/photo/person-holding-square-white-ceramic-plate-687824/
+slide1.jpg - Image by <a href="https://pixabay.com/users/victoria_art-6314823/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6974507">more photos boosty.to/victoria_art_music</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6974507">Pixabay</a>
+login.png - <a href="https://www.flaticon.com/free-icons/login" title="login icons">Login icons created by Freepik - Flaticon</a>
+singup_image.jpg - <a href='https://www.freepik.com/vectors/phone-order'>Phone order vector created by storyset - www.freepik.com</a>
+singup.png - <a href="https://www.flaticon.com/free-icons/contract" title="contract icons">Contract icons created by Freepik - Flaticon</a>

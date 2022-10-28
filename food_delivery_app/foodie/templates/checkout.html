@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h3><i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Checkout</h3>
+    <br>
+     {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    {%endif%}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{item.item_id.item_name}}</td>
+                <td>$ {{item.item_id.item_price}}</td>
+                <td>{{item.quantity}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2" class="text-end">Sub Total</td>
+                <td>$ {{total_price}}</td>
+            </tr>
+            {% if discounted_price %}
+            <tr>
+                <td colspan="2" class="text-end">Discount</td>
+                <td> - {{discount}}%</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-end">Total Price</td>
+                <td>$ {{discounted_price}}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="/checkout" method="POST">
+                {% csrf_token %}
+                <div>
+                    <h6>Select Address</h6>
+                    {% if addresses %}
+                    <div class="row">
+                        {% for address in addresses %}
+                        <div class="col-sm-6 shadow p-3 mb-5 bg-white rounded address-container">
+                            <label for="address_{{address.id}}" class="row">
+                                <div class="col-sm-10">
+                                    <p>{{address.street}}</p>
+                                    <p>{{address.city}}, {{address.state}}</p>
+                                    <p class="mb-0">United States - {{address.zipcode}}</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="radio" value="{{address.id}}" id="address_{{address.id}}" name="address"
+                                        required>
+                                </div>
+                            </label>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    {% else %}
+                    <div class="row">
+                        <a href="/add-address" style="font-size: 50px;text-decoration: none;color: #000;"
+                            target="_blank">
+                            <div class="col-sm-6 text-center shadow p-3 mb-5 bg-white rounded address-container">
+                                +
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <h6>Select Payment Method</h6>
+                    {% if payment_methods %}
+                    <div class="row">
+                        {% for payment in payment_methods %}
+                        <div class="col-sm-6 shadow p-3 mb-5 bg-white rounded payment-container">
+                            <label for="payment_{{payment.id}}" class="row">
+                                <div class="col-sm-10">
+                                    <p>{{payment.cardnumber}}</p>
+                                    <p>{{payment.cardname}}, {{payment.cardtype|capfirst}}</p>
+                                    <p class="mb-0">{{payment.expires}}, {{payment.cvv}}</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="radio" value="{{payment.id}}" id="payment_{{payment.id}}" name="payment"
+                                        required>
+                                </div>
+                            </label>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    {% else %}
+                    <div class="row">
+                        <a href="/add-payment-method" style="font-size: 50px;text-decoration: none;color: #000;"
+                            target="_blank">
+                            <div class="col-sm-6 text-center shadow p-3 mb-5 bg-white rounded payment-container">
+                                +
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% if discounted_price %}
+                <input type="number" value="{{discounted_price}}" name="total_price" hidden>
+                {% else %}
+                <input type="number" value="{{total_price}}" name="total_price" hidden>
+                {% endif %}
+                <input type="number" value="{{offer_id}}" name="offer_id" hidden>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input class="btn btn-primary rounded-pill pe-3 ps-3" type="submit" value="Order Now">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <form action="/checkout" method="POST">
+                {% csrf_token %}
+                <div class="row d-flex justify-content-end">
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" name="promo" id="promo" placeholder="Apply Promocode">
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="btn btn-primary rounded-pill pe-3 ps-3" type="submit" value="Apply">
+                    </div>
+                </div>
+            </form>
+            <br>
+            <div class="row d-flex justify-content-end">
+
+                <div class="col-sm-6 text-center">
+                    <p><b>Available Coupons</b></p>
+                    {% if offers %}
+                    {% for offer in offers %}
+                    <div class="text-start">
+                        <p><b>{{offer.offer_name}}</b></p>
+                        <p>{{offer.offer_description}}</p>
+                        <p style="font-size: 20px;">{{offer.promo_code}} <button class="btn btn-primary"
+                                id="{{offer.id}}" onclick="copy_text(this)">Copy</button></p>
+                        <input type="text" id="offer_{{offer.id}}" value="{{offer.promo_code}}" hidden>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p>No Promos Available right now.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+    function copy_text(ele) {
+        var text = document.getElementById("offer_" + ele.id)
+
+        text.select();
+        text.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(text.value);
+
+        ele.innerHTML = "Copied";
+
+        new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+            ele.innerHTML = "Copy";
+        });
+    }
+</script>
+{% endblock %}

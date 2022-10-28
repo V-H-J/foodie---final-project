@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block head_content %}
+<style>
+    .menu-container {
+        border-radius: 15px;
+    }
+
+    .menu-container p {
+        margin-bottom: 0 !important;
+    }
+
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center
+    }
+
+    .rating>input {
+        display: none
+    }
+
+    .rating>label {
+        position: relative;
+        width: 1em;
+        font-size: 30px;
+        font-weight: 300;
+        color: #FFD600;
+        cursor: pointer
+    }
+
+    .rating>label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0
+    }
+
+
+    .rating>input:checked~label:before {
+        opacity: 1
+    }
+
+</style>
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h3>{{restaurant.legal_name}} <a href="/add-favorite-restaurant/{{restaurant.id}}">{% if is_favorite %}<i
+                class="fa-solid fa-heart" style="color: #ff0000;font-size:30px;"></i>{% else %}<i
+                class="fa-regular fa-heart" style="color: #ff0000;font-size:30px;"></i>{% endif %}</a></h3>
+    <div class="col-sm-10">
+        <h4>Menu</h4>
+    </div>
+    <br>
+    {% for key,item in menu_items_dict.items %}
+    <div class="row col-sm-8 shadow p-3 mb-5 bg-white rounded menu-container">
+        <div class="col-sm-9">
+            <h6>{{item.item_name}}</h6>
+            <p>${{item.item_price}}</p>
+        </div>
+        <div class="col-sm-1">
+            <a href="/add-favorite-item/{{key}}">{% if item.is_favorite %}<i class="fa-solid fa-heart"
+                    style="color: #ff0000;font-size:30px;"></i>{% else %}<i class="fa-regular fa-heart"
+                    style="color: #ff0000;font-size:30px;"></i>{% endif %}</a>
+        </div>
+        <div class="col-sm-2">
+            {% if key in request.cart_items_ids %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary" formaction="/update-cart/restaurant-decrement">-</button>
+                <input type="number" name="cart_item_id" value="{{item.cart_item_id}}" hidden>
+                <input type="text" name="cart_item_count" id="cart_item_count"
+                    style="width:30px;padding: 0px;text-align: center;" value="{{item.quantity}}" readonly>
+                <button type="submit" class="btn btn-primary" formaction="/update-cart/restaurant-increment">+</button>
+            </form>
+            {% else %}
+            <a class="btn btn-primary" href="/add-cart-item/{{key}}">+ Add</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <div>
+        <h6><b>Ratings & Reviews</b></h6>
+        {% for review in restaurant_reviews %}
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <h6><b>{{review.user_id.first_name}} {{review.user_id.last_name}}</b></h6>
+            <div class="rating d-flex justify-content-end">
+                <input type="radio" name="rating_restaurant" value="5" {% if review.rating == 5 %}checked{% endif %}
+                    id="rest_5" disabled><label for="rest_5">☆</label>
+                <input type="radio" name="rating_restaurant" value="4" {% if review.rating == 4 %}checked{% endif %}
+                    id="rest_4" disabled><label for="rest_4">☆</label>
+                <input type="radio" name="rating_restaurant" value="3" {% if review.rating == 3 %}checked{% endif %}
+                    id="rest_3" disabled><label for="rest_3">☆</label>
+                <input type="radio" name="rating_restaurant" value="2" {% if review.rating == 2 %}checked{% endif %}
+                    id="rest_2" disabled><label for="rest_2">☆</label>
+                <input type="radio" name="rating_restaurant" value="1" {% if review.rating == 1 %}checked{% endif %}
+                    id="rest_1" disabled><label for="rest_1">☆</label>
+            </div>
+            <p class="mb-0">
+                {{review.review}}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

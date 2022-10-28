@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container">
+    <div class="contact mt-5">
+        <h3><strong>Edit Payment Method</strong></h3>
+        <br>
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {% endif %}
+        <form method="post" action="/edit-payment-method/{{payment_method.id}}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="mb-3 col-sm-6">
+                    <label for="cardnumber" class="form-label">Card Number</label>
+                    <input type="text" class="form-control" id="cardnumber" name="cardnumber"
+                        placeholder="Enter your Card Number" value="{{payment_method.cardnumber}}" maxlength="16" required>
+                </div>
+                <div class="mb-3 col-sm-6">
+                    <label for="cardname" class="form-label">Card Name</label>
+                    <input type="text" class="form-control" id="cardname" name="cardname"
+                        placeholder="Enter your Card Name" value="{{payment_method.cardname}}" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-sm-6">
+                    <label for="cardtype" class="form-label">Card Type</label>
+                    <select class="form-select" name="cardtype" required>
+                        <option value="visa" {% if payment_method.cardtype == 'visa' %}selected{% endif %}>Visa</option>
+                        <option value="mastercard" {% if payment_method.cardtype == 'mastercard' %}selected{% endif %}>Master Card</option>
+                        <option value="americanexpress" {% if payment_method.cardtype == 'americanexpress' %}selected{% endif %}>American Express</option>
+                        <option value="discover" {% if payment_method.cardtype == 'discover' %}selected{% endif %}>Discover</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-sm-6">
+                    <label for="expires" class="form-label">Expires</label>
+                    <input type="text" class="form-control" id="expires" name="expires" placeholder="MM/YY"
+                        value="{{payment_method.expires}}" maxlength="5" required>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="mb-3 col-sm-6">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" value="{{payment_method.cvv}}"
+                        maxlength="4" required>
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary col-lg-2 ">Save</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

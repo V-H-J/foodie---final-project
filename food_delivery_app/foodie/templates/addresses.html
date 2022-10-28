@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h4>Addresses</h4>
+    <br>
+    <div class="row d-flex justify-content-end">
+        <div class="col-sm-2">
+            <a class="btn btn-primary" href="/add-address">+ Add Address</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <th>Street Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Zipcode</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for address in addresses %}
+            <tr>
+                <td>{{address.street}}</td>
+                <td>{{address.city}}</td>
+                <td>{{address.state}}</td>
+                <td>United States</td>
+                <td>{{address.zipcode}}</td>
+                <td><a class="btn btn-primary" href="/edit-address/{{address.id}}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

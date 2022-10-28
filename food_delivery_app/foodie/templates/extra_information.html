@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% if success %}
+<div class="container text-center mt-5">
+    <img src="/static/images/success.png" width="10%">
+    <p><b>Details Updated Successfully. Your Profile is waiting for approval.</b></p>
+</div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="/static/images/signup.png" class="mt-5" width="5%">
+
+            <h3 class="mt-4">Provide Extra Information</h3>
+            <p>Please provide some required information in order to proceed with your registration</p>
+            <br>
+            {% if message %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endif %}
+            <form method="post" action="/signup-extra">
+                {%csrf_token%}
+                <input type="text" name="user_type" value="{{user_type}}" hidden>
+                <input type="number" name="user_id" value="{{user_obj.id}}" hidden>
+                <input type="number" name="user_extra_id" value="{{user_extra.id}}" hidden>
+                {% if user_type == 'business' %}
+                <div class="row">
+                    <div class="mb-3 col-sm-12">
+                        <label for="legal_name" class="form-label">Legal Name</label>
+                        <input type="text" class="form-control" id="legal_name" name="legal_name" value="{{legal_name}}"
+                            placeholder="Enter your Legal Name" minlength="8" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-sm-12">
+                        <label for="business_address" class="form-label">Street Address</label>
+                        <input type="text" class="form-control" id="business_address" name="business_address"
+                            placeholder="Enter Business Street Address" value="{{business_address}}" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="business_city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="business_city" name="business_city"
+                            placeholder="Enter your Business City" value="{{business_city}}" required>
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label for="business_state" class="form-label">State</label>
+                        <input type="text" class="form-control" id="business_state" name="business_state"
+                            placeholder="Enter your Business State" value="{{business_state}}" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="business_zipcode" class="form-label">Zipcode</label>
+                        <input type="text" class="form-control" id="business_zipcode" name="business_zipcode"
+                            placeholder="Enter your Business Zipcode" value="{{business_zipcode}}" maxlength="10" required>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="legal_name" class="form-label">Legal Name</label>
+                        <input type="text" class="form-control" id="delivery_legal_name" name="legal_name"
+                            placeholder="Enter your Legal Name" value="{{legal_name}}" required>
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label for="ssn" class="form-label">SSN</label>
+                        <input type="number" class="form-control" id="ssn" name="ssn"
+                            placeholder="Enter your SSN" value="{{ssn}}" maxlength="10" required>
+                    </div>
+                </div>
+                {% endif %}
+                <button type="submit" class="btn btn-primary col-sm-12 rounded-pill">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <img class="mt-5" src="/static/images/signup_image.jpg" style="width: 100%;height: 78vh;">
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+{% block script %}
+<script>
+    $('#show_password').on('click', function () {
+        if (this.checked) {
+            $('#password').prop("type", "text");
+            $('#confirm_password').prop("type", "text");
+        } else {
+            $('#password').prop("type", "password");
+            $('#confirm_password').prop("type", "password");
+        }
+    });
+</script>
+{% endblock %}

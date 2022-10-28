@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h4>Payment Methods</h4>
+    <br>
+    <div class="row d-flex justify-content-end">
+        <div class="col-sm-3">
+            <a class="btn btn-primary" href="/add-payment-method">+ Add Payment Method</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <th>Card Number</th>
+            <th>Card Name</th>
+            <th>Card Type</th>
+            <th>Expires</th>
+            <th>CVV</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for payment in payment_methods %}
+            <tr>
+                <td>{{payment.cardnumber}}</td>
+                <td>{{payment.cardname}}</td>
+                <td>{{payment.cardtype}}</td>
+                <td>{{payment.expires}}</td>
+                <td>{{payment.cvv}}</td>
+                <td><a class="btn btn-primary" href="/edit-payment-method/{{payment.id}}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

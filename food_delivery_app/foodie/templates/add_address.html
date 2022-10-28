@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block head_content %} {% endblock %} {% block main_content %}
+<div class="container">
+    <div class="contact mt-5">
+        <h4>Add Address</h4>
+        <br>
+        <form method="post" action="/add-address">
+            {%csrf_token%}
+            <div class="row">
+                <div class="mb-3 col-sm-6">
+                    <label for="street" class="form-label">Street</label>
+                    <input type="text" class="form-control" id="street" name="street"
+                        placeholder="Enter your Street Address" value="{{street}}" required>
+                </div>
+                <div class="mb-3 col-sm-6">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Enter your City"
+                        value="{{city}}" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-sm-6">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" name="state" placeholder="Enter your State"
+                        value="{{state}}" required>
+                </div>
+                <div class="mb-3 col-sm-6">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" placeholder="Enter your Country"
+                        value="United States" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-sm-6">
+                    <label for="zipcode" class="form-label">Zip Code</label>
+                    <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Enter Zipcode"
+                        value="{{zipcode}}" maxlength="5" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary col-sm-1 rounded-pill">Submit</button>
+        </form>
+
+
+
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,201 @@
+legal_name,item_name,item_price
+Bawarchi,Chicken Biryani,10
+Bawarchi,Mutton biryani,12.5
+Bawarchi,Apollo Fish,16
+Bawarchi,Dal chaval,9.5
+Bawarchi,Meat and 3 Veggies,14.05
+Bawarchi,"Greek Salad	",15.5
+Bawarchi,"Oatmeal Raisin Cookie	",6
+Bawarchi,"Fried Peach Pie	",6.6
+Bawarchi,Chicken Biryani,11
+Bawarchi,Mutton biryani,10.5
+Sitara,Apollo Fish,11.6
+Sitara,Dal chaval,12.99
+Sitara,Gobi manchurian,11.69
+Sitara,pani puri,4.99
+Sitara,chat masala,5.49
+Sitara,fried rice,9
+Sitara,roti,1.09
+Sitara,puri,1.99
+Sitara,chicken butter masala,9.99
+Sitara,Paneer kadai,8.99
+Ted's Restaurant,Meat and 3 Veggies,6.6
+Ted's Restaurant,"Greek Salad	",11
+Ted's Restaurant,"Oatmeal Raisin Cookie	",10.5
+Ted's Restaurant,"Fried Peach Pie	",11.6
+Ted's Restaurant,Chicken Biryani,12.99
+Ted's Restaurant,Mutton biryani,11.69
+Ted's Restaurant,Apollo Fish,4.99
+Ted's Restaurant,Dal chaval,5.49
+Ted's Restaurant,Gobi manchurian,9
+Ted's Restaurant,pani puri,1.09
+Biryani Bowl,Apollo Fish,11
+Biryani Bowl,Dal chaval,10.5
+Biryani Bowl,Gobi manchurian,11.6
+Biryani Bowl,pani puri,12.99
+Biryani Bowl,chat masala,11.69
+Biryani Bowl,fried rice,4.99
+Biryani Bowl,roti,5.49
+Biryani Bowl,puri,9
+Biryani Bowl,chicken butter masala,1.09
+Biryani Bowl,Paneer kadai,1.99
+bay leaf,Meat and 3 Veggies,9.99
+bay leaf,Apollo Fish,8.99
+bay leaf,Meat and 3 Veggies,6.6
+bay leaf,"Greek Salad	",11
+bay leaf,"Oatmeal Raisin Cookie	",10.5
+bay leaf,"Fried Peach Pie	",22.05
+bay leaf,Chicken Biryani,2.99
+bay leaf,Mutton biryani,2.49
+bay leaf,Apollo Fish,6.89
+bay leaf,Dal chaval,9.89
+Texas de Brazil,Gobi manchurian,11.99
+Texas de Brazil,chicken butter masala,22.06
+Texas de Brazil,Paneer kadai,4.05
+Texas de Brazil,Meat and 3 Veggies,4.36
+Texas de Brazil,Apollo Fish,8.56
+Texas de Brazil,Meat and 3 Veggies,3.46
+Texas de Brazil,"Greek Salad	",2.96
+Texas de Brazil,"Oatmeal Raisin Cookie	",9.56
+Texas de Brazil,"Fried Peach Pie	",6.55
+Texas de Brazil,Chicken Biryani,9
+Gianmarco's Restaurant,Mutton biryani,9.96
+Gianmarco's Restaurant,chicken butter masala,4.99
+Gianmarco's Restaurant,Paneer kadai,5.49
+Gianmarco's Restaurant,Meat and 3 Veggies,9
+Gianmarco's Restaurant,"Greek Salad	",1.09
+Gianmarco's Restaurant,"Oatmeal Raisin Cookie	",1.99
+Gianmarco's Restaurant,"Fried Peach Pie	",9.99
+Gianmarco's Restaurant,Chicken Biryani,8.99
+Gianmarco's Restaurant,Mutton biryani,6.6
+Gianmarco's Restaurant,Apollo Fish,11
+Bistro Two Eighteen,Dal chaval,10.5
+Bistro Two Eighteen,Chicken Biryani,22.05
+Bistro Two Eighteen,Mutton biryani,2.99
+Bistro Two Eighteen,Apollo Fish,2.49
+Bistro Two Eighteen,Dal chaval,6.89
+Bistro Two Eighteen,Gobi manchurian,9.89
+Bistro Two Eighteen,pani puri,2.99
+Bistro Two Eighteen,chat masala,2.49
+Bistro Two Eighteen,fried rice,6.89
+Bistro Two Eighteen,roti,9.89
+Highlands Bar & Grill,puri,11.99
+Highlands Bar & Grill,"Oatmeal Raisin Cookie	",22.06
+Highlands Bar & Grill,"Fried Peach Pie	",4.05
+Highlands Bar & Grill,Chicken Biryani,4.36
+Highlands Bar & Grill,Mutton biryani,8.56
+Highlands Bar & Grill,Apollo Fish,3.46
+Highlands Bar & Grill,Dal chaval,2.96
+Highlands Bar & Grill,Gobi manchurian,9.56
+Highlands Bar & Grill,pani puri,6.55
+Highlands Bar & Grill,chat masala,11.69
+Satterfield's Restaurant,fried rice,4.99
+Satterfield's Restaurant,Chicken Biryani,5.49
+Satterfield's Restaurant,Mutton biryani,9
+Satterfield's Restaurant,chicken butter masala,1.09
+Satterfield's Restaurant,Paneer kadai,1.99
+Satterfield's Restaurant,Meat and 3 Veggies,9.99
+Satterfield's Restaurant,"Greek Salad	",8.99
+Satterfield's Restaurant,"Oatmeal Raisin Cookie	",6.6
+Satterfield's Restaurant,"Fried Peach Pie	",11
+Satterfield's Restaurant,Chicken Biryani,10.5
+South City Kitchen Buckhead,Mutton biryani,22.05
+South City Kitchen Buckhead,Apollo Fish,2.99
+South City Kitchen Buckhead,Dal chaval,2.49
+South City Kitchen Buckhead,Gobi manchurian,6.89
+South City Kitchen Buckhead,Chicken Biryani,9.89
+South City Kitchen Buckhead,Mutton biryani,11.99
+South City Kitchen Buckhead,chicken butter masala,22.06
+South City Kitchen Buckhead,vada pav,4.05
+South City Kitchen Buckhead,green tea,4.36
+South City Kitchen Buckhead,Meat and 3 Veggies,8.56
+Bones Restaurant,"Greek Salad	",3.46
+Bones Restaurant,"Oatmeal Raisin Cookie	",2.96
+Bones Restaurant,"Fried Peach Pie	",9.56
+Bones Restaurant,Chicken Biryani,6.55
+Bones Restaurant,Mutton biryani,14.05
+Bones Restaurant,chicken butter masala,15.5
+Bones Restaurant,Meat and 3 Veggies,6
+Bones Restaurant,"Greek Salad	",6.6
+Bones Restaurant,"Oatmeal Raisin Cookie	",11
+Bones Restaurant,"Fried Peach Pie	",10.5
+Seven Lamps,Chicken Biryani,11.6
+Seven Lamps,Mutton biryani,12.99
+Seven Lamps,Apollo Fish,11.69
+Seven Lamps,Dal chaval,4.99
+Seven Lamps,Gobi manchurian,5.49
+Seven Lamps,"Fried Peach Pie	",9
+Seven Lamps,Chicken Biryani,1.09
+Seven Lamps,Mutton biryani,1.99
+Seven Lamps,Apollo Fish,9.99
+Seven Lamps,Dal chaval,8.99
+The Capital Grille,Chicken Biryani,6.6
+The Capital Grille,Mutton biryani,11
+The Capital Grille,Apollo Fish,10.5
+The Capital Grille,Dal chaval,11.6
+The Capital Grille,Gobi manchurian,12.99
+The Capital Grille,pani puri,11.69
+The Capital Grille,chat masala,4.99
+The Capital Grille,fried rice,5.49
+The Capital Grille,roti,9
+The Capital Grille,puri,1.09
+Atlanta Breakfast Club,chicken butter masala,11
+Atlanta Breakfast Club,Paneer kadai,10.5
+Atlanta Breakfast Club,Meat and 3 Veggies,11.6
+Atlanta Breakfast Club,Apollo Fish,12.99
+Atlanta Breakfast Club,Meat and 3 Veggies,11.69
+Atlanta Breakfast Club,"Greek Salad	",4.99
+Atlanta Breakfast Club,"Oatmeal Raisin Cookie	",5.49
+Atlanta Breakfast Club,"Fried Peach Pie	",9
+Atlanta Breakfast Club,Chicken Biryani,1.09
+Atlanta Breakfast Club,Mutton biryani,1.99
+Vindu Indian Cuisine,chicken butter masala,9.99
+Vindu Indian Cuisine,Paneer kadai,8.99
+Vindu Indian Cuisine,Meat and 3 Veggies,6.6
+Vindu Indian Cuisine,"Greek Salad	",11
+Vindu Indian Cuisine,"Oatmeal Raisin Cookie	",10.5
+Vindu Indian Cuisine,"Fried Peach Pie	",22.05
+Vindu Indian Cuisine,Chicken Biryani,2.99
+Vindu Indian Cuisine,Mutton biryani,2.49
+Vindu Indian Cuisine,Apollo Fish,6.89
+Vindu Indian Cuisine,Dal chaval,9.89
+Mughlai Fine Indian Cuisine,Paneer kadai,11.99
+Mughlai Fine Indian Cuisine,Meat and 3 Veggies,22.06
+Mughlai Fine Indian Cuisine,Apollo Fish,4.05
+Mughlai Fine Indian Cuisine,Meat and 3 Veggies,4.36
+Mughlai Fine Indian Cuisine,"Greek Salad	",8.56
+Mughlai Fine Indian Cuisine,"Oatmeal Raisin Cookie	",3.46
+Mughlai Fine Indian Cuisine,"Fried Peach Pie	",2.96
+Mughlai Fine Indian Cuisine,Chicken Biryani,9.56
+Mughlai Fine Indian Cuisine,Mutton biryani,6.55
+Mughlai Fine Indian Cuisine,"Oatmeal Raisin Cookie	",9
+Swadeshi Indian Cuisine,"Fried Peach Pie	",9.96
+Swadeshi Indian Cuisine,Chicken Biryani,4.99
+Swadeshi Indian Cuisine,Mutton biryani,5.49
+Swadeshi Indian Cuisine,Apollo Fish,9
+Swadeshi Indian Cuisine,Dal chaval,1.09
+Swadeshi Indian Cuisine,Gobi manchurian,22.06
+Swadeshi Indian Cuisine,pani puri,4.05
+Swadeshi Indian Cuisine,chat masala,4.36
+Swadeshi Indian Cuisine,fried rice,8.56
+Swadeshi Indian Cuisine,Apollo Fish,3.46
+Hyderabadi Biryani & BBQ,Meat and 3 Veggies,2.96
+Hyderabadi Biryani & BBQ,"Greek Salad	",9.56
+Hyderabadi Biryani & BBQ,"Oatmeal Raisin Cookie	",6.55
+Hyderabadi Biryani & BBQ,"Fried Peach Pie	",14.05
+Hyderabadi Biryani & BBQ,Chicken Biryani,15.5
+Hyderabadi Biryani & BBQ,Mutton biryani,6
+Hyderabadi Biryani & BBQ,chicken butter masala,6.6
+Hyderabadi Biryani & BBQ,Paneer kadai,11
+Hyderabadi Biryani & BBQ,Mutton biryani,10.5
+Hyderabadi Biryani & BBQ,Gobi manchurian,11.6
+Curry Bliss - Indian Restaurant & Banquet,Chicken Biryani,12.99
+Curry Bliss - Indian Restaurant & Banquet,Mutton biryani,11.69
+Curry Bliss - Indian Restaurant & Banquet,Apollo Fish,4.99
+Curry Bliss - Indian Restaurant & Banquet,Dal chaval,5.49
+Curry Bliss - Indian Restaurant & Banquet,Gobi manchurian,9
+Curry Bliss - Indian Restaurant & Banquet,pani puri,1.09
+Curry Bliss - Indian Restaurant & Banquet,chat masala,5.66
+Curry Bliss - Indian Restaurant & Banquet,fried rice,4.44
+Curry Bliss - Indian Restaurant & Banquet,roti,0.79
+Curry Bliss - Indian Restaurant & Banquet,puri,1.29

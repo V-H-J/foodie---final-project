@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container">
+    <div class="mt-5">
+        <h4>Add Menu</h4>
+    </div>
+    <br>
+    {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    {% endif %}
+    <form method="post" action="/add-menu-item">
+        {% csrf_token %}
+        <div class="row">
+            <div class="mb-3 col-sm-6">
+                <label for="item_name" class="form-label">Item Name</label>
+                <input type="text" class="form-control" id="item_name" name="item_name"
+                    placeholder="Enter your Item Name" value="{{item_name}}" required>
+            </div>
+            <div class="mb-3 col-sm-6">
+                <label for="item_price" class="form-label">Item Price</label>
+                <input type="number" class="form-control" id="item_price" name="item_price"
+                    placeholder="Enter the price of the Item" value="{{item_price}}" required>
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

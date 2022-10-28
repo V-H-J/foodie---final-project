@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="/static/images/signup.png" class="mt-5" width="5%">
+
+            <h3 class="mt-4">Sign up</h3>
+            <p>Sign up to order your food today.</p>
+            <br>
+            {% if message %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endif %}
+            <form method="post" action="/signup">
+                {%csrf_token%}
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name"
+                            placeholder="Enter your First Name" value="{{first_name}}" required>
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name"
+                            placeholder="Enter your Last Name" value="{{last_name}}" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+                            placeholder="Enter your Email Address" value="{{email}}" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="phone" class="form-control" id="phone" name="phone"
+                            placeholder="Enter your Phone Number" value="{{phone}}" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-sm-12">
+                        <label for="user_type" class="form-label">User Type</label>
+                        <select class="form-select" id="user_type" name="user_type" aria-label="User Type" required>
+                            <option value="customer">Customer</option>
+                            <option value="delivery">Delivery Person</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Enter your Password" minlength="8" required>
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password"
+                            placeholder="Confirm your Password" minlength="8" required>
+                    </div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="show_password">
+                    <label class="form-check-label" for="show_password">Show Password</label>
+                </div>
+                <button type="submit" class="btn btn-primary col-sm-12 rounded-pill">Sign Up</button>
+                <p class="mt-2">Already a member? <a href="/login">Login</a></p>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <img class="mt-5" src="/static/images/signup_image.jpg" style="width: 100%;height: 78vh;">
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+    $('#show_password').on('click', function () {
+        if (this.checked) {
+            $('#password').prop("type", "text");
+            $('#confirm_password').prop("type", "text");
+        } else {
+            $('#password').prop("type", "password");
+            $('#confirm_password').prop("type", "password");
+        }
+    });
+</script>
+{% endblock %}

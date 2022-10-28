@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head_content %}
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <h3><i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;Cart</h3>
+    <br>
+    {% if request.cart_items %}
+    {% for item in request.cart_items %}
+    <div class="row col-sm-8 shadow p-3 mb-5 bg-white rounded menu-container">
+        <div class="col-sm-10">
+            <h6>{{item.item_id.item_name}}</h6>
+            <p>${{item.item_id.item_price}} x {{item.quantity}} = {%widthratio item.item_id.item_price 1 item.quantity%}
+            </p>
+        </div>
+        <div class="col-sm-2">
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary" formaction="/update-cart/decrement">-</button>
+                <input type="number" name="cart_item_id" value="{{item.id}}" hidden>
+                <input type="text" name="cart_item_count" id="cart_item_count"
+                    style="width:30px;padding: 0px;text-align: center;" value="{{item.quantity}}" readonly>
+                <button type="submit" class="btn btn-primary" formaction="/update-cart/increment">+</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row col-sm-8 d-flex justify-content-end text-end">
+        <div class="col-sm-3">
+            <a class="btn btn-primary rounded-pill" href="/checkout">Checkout</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center">
+        <img src="/static/images/empty_cart.png" width="200px"><br>
+        <p style="font-size: 20px;"><b>Hmm, Your Cart is Empty</b></p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

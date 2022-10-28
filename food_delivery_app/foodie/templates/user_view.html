@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head_content %}
+<style>
+    .user-container {
+        text-decoration: none !important;
+        color: #000000;
+    }
+</style>
+{% endblock %}
+{% block main_content %}
+<div class="container mt-5">
+    <div class="row d-flex justify-content-between">
+        <a class="col-sm-2 me-5 user-container shadow p-3 mb-5 bg-white rounded text-center" href="/user-profile">
+            <i class="fa-solid fa-address-card" style="font-size:50px;"></i>
+            <p class="mb-0"><b>User Profile</b></p>
+        </a>
+        <a class="col-sm-2 me-5 user-container shadow p-3 mb-5 bg-white rounded text-center" href="/orderhistory">
+            <i class="fa-solid fa-clock-rotate-left mb-2" style="font-size:50px;"></i>
+            <p class="mb-0"><b>Order History</b></p>
+        </a>
+        <a class="col-sm-2 me-5 user-container shadow p-3 mb-5 bg-white rounded text-center" href="/payment-methods">
+            <i class="fa-solid fa-credit-card" style="font-size:50px;"></i>
+            <p class="mb-0"><b>Payment Methods</b></p>
+        </a>
+        <a class="col-sm-2 me-5 user-container shadow p-3 mb-5 bg-white rounded text-center" href="/addresses">
+            <i class="fa-solid fa-address-book" style="font-size:50px;"></i>
+            <p class="mb-0"><b>Addresses</b></p>
+        </a>
+    </div>
+    <div class="row d-flex justify-content-between">
+        <a class="col-sm-2 me-5 user-container shadow p-3 mb-5 bg-white rounded text-center" href="/favorites">
+            <i class="fa-regular fa-heart" style="font-size:50px;color: #ff0000;"></i>
+            <p class="mb-0"><b>Favorites</b></p>
+        </a>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+
+{% endblock %}
